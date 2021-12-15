@@ -5,8 +5,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public Camera cam; 
+    public Camera cam;
     public Rigidbody2D rb;
+    public double test;
     SpriteRenderer sr;
     
     Vector2 mousePos;
@@ -14,15 +15,19 @@ public class PlayerMovement : MonoBehaviour
     Vector2 movement;
     void Start()
     {
+        
+        
         sr = GetComponent<SpriteRenderer>();
     }
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+       
+
         mousePos = Input.mousePosition;
-        Vector2 mousePosDelta = mousePos - rb.position;
-        if (mousePosDelta.x > 0)
+        Vector2 mousePosDelta = mousePos;
+        if (mousePosDelta.x < 390)
         {
             sr.flipX = true;
         }
@@ -30,6 +35,10 @@ public class PlayerMovement : MonoBehaviour
         {
             sr.flipX = false;
         }
+
+        test = Math.Sin(45.0);
+        //Debug.Log(Input.mousePosition);
+        Debug.Log(test);
     }
 
     void FixedUpdate()
