@@ -28,12 +28,12 @@ public class Gun : MonoBehaviour
         Vector2 lookDir = mousePos - rb.position; 
         if (lookDir.x > 0f)
         {
-            transform.position = new Vector3(pltf.position.x + 0.6f, pltf.position.y, pltf.position.z);
+            transform.position = new Vector3(pltf.position.x + 0.0f, pltf.position.y, pltf.position.z);
             sr.flipY = false;
         }
         else if (lookDir.x < 0f)
         {
-            transform.position = new Vector3(pltf.position.x - 0.6f, pltf.position.y, pltf.position.z);
+            transform.position = new Vector3(pltf.position.x - 0.0f, pltf.position.y, pltf.position.z);
             sr.flipY = true;
         }
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
