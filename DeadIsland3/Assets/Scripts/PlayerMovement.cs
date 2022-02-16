@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public Camera cam;
     public Rigidbody2D rb;
     public float test;
+    public Animator animator;
     SpriteRenderer sr;
     
 
@@ -21,9 +22,12 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+      
 
 
         movement.x = Input.GetAxisRaw("Horizontal");
+        animator.SetFloat("Speed", Mathf.Abs(movement.x));
+
         movement.y = Input.GetAxisRaw("Vertical");
 
         Vector2 lookDir = mousePos - rb.position;
