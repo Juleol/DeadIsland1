@@ -22,13 +22,23 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-      
 
 
-        movement.x = Input.GetAxisRaw("Horizontal");
-        animator.SetFloat("Speed", Mathf.Abs(movement.x));
 
-        movement.y = Input.GetAxisRaw("Vertical");
+       
+        {
+
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
+
+            if (movement != Vector2.zero)
+            {
+                animator.SetFloat("Horizontal", movement.x);
+                animator.SetFloat("Vertical", movement.y);
+            }
+
+            animator.SetFloat("Speed", movement.sqrMagnitude);
+        }
 
         Vector2 lookDir = mousePos - rb.position;
 
