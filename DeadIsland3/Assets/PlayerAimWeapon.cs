@@ -7,16 +7,21 @@ public class PlayerAimWeapon : MonoBehaviour
 {
     private Transform aimTransform;
     private Animator aimAnimator;
+    Object bulletRef;
+
+  
     private void Awake()
     {
         aimTransform = transform.Find("Aim");
         aimAnimator = aimTransform.GetComponent<Animator>();
+        bulletRef = Resources.Load("Bullet");
     }
 
     private void Update()
     {
         HandleAiming();
         HandleShooting();
+       
     }
     private void HandleShooting()
     {
@@ -31,7 +36,9 @@ public class PlayerAimWeapon : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             aimAnimator.SetTrigger("Shoot");
+            GameObject bullet = (GameObject)Instantiate(bulletRef);
+
         }
     }
-}
+   }
 
