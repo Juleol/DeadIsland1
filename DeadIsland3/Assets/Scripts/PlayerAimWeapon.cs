@@ -14,7 +14,6 @@ public class PlayerAimWeapon : MonoBehaviour
     {
         aimTransform = transform.Find("Aim");
         aimAnimator = aimTransform.GetComponent<Animator>();
-        bulletRef = Resources.Load("Bullet");
     }
 
     private void Update()
@@ -36,7 +35,6 @@ public class PlayerAimWeapon : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             aimAnimator.SetTrigger("Shoot");
-            GameObject bullet = (GameObject)Instantiate(bulletRef);
 
         }
     }
