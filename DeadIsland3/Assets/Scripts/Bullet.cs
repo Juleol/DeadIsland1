@@ -13,15 +13,8 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         rb.velocity = transform.right * speed;
-        StartCoroutine(change());
-    }
-    public IEnumerator change()
-    {
-        // wait for 3 seconds
-        yield return new WaitForSeconds(0.5f);
-
-        Destroy(gameObject);
-    }
+     }
+ 
 
     void OnTriggerEnter2D (Collider2D hitInfo)
 
