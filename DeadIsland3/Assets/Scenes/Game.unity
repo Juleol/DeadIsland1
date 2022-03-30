@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 50068926}
   - component: {fileID: 50068925}
   - component: {fileID: 50068924}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Aim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -519,6 +519,8 @@ GameObject:
   - component: {fileID: 156878593}
   - component: {fileID: 156878592}
   - component: {fileID: 156878596}
+  - component: {fileID: 156878598}
+  - component: {fileID: 156878597}
   m_Layer: 0
   m_Name: Slimefram1
   m_TagString: Enemy
@@ -553,7 +555,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.035439014, y: -0.54930735}
+  m_Offset: {x: 0.09535408, y: -0.77309585}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -564,7 +566,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.2659464, y: 3.7420626}
+  m_Size: {x: 5.9562397, y: 3.7393408}
   m_EdgeRadius: 0
 --- !u!212 &156878594
 SpriteRenderer:
@@ -653,6 +655,47 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!50 &156878597
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156878591}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
+--- !u!114 &156878598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156878591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afed5560de6ba2442adff0c32067401d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 4
+  checkRadius: 5
+  attackRadius: 2
+  shouldRotate: 1
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 64
+  dir: {x: 0, y: 0, z: 0}
 --- !u!1 &168197044
 GameObject:
   m_ObjectHideFlags: 0
@@ -1221,7 +1264,7 @@ GameObject:
   - component: {fileID: 273410652}
   - component: {fileID: 273410650}
   - component: {fileID: 273410653}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AUTO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1468,7 +1511,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.165725, y: 1}
+    m_SensorSize: {x: 2.7953217, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2921,7 +2964,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 981445612}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3286,7 +3329,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1161621610}
   - component: {fileID: 1161621611}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sniper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3726,7 +3769,7 @@ GameObject:
   - component: {fileID: 1729913390}
   - component: {fileID: 1729913392}
   - component: {fileID: 1729913391}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3947,7 +3990,7 @@ GameObject:
   - component: {fileID: 1831666536}
   - component: {fileID: 1831666537}
   - component: {fileID: 1831666538}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Character
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -4074,7 +4117,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.11461818, y: 0}
+  m_Offset: {x: -0.05867207, y: 0.13054109}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4085,7 +4128,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7918348, y: 3.2}
+  m_Size: {x: 2.2767015, y: 3.6102715}
   m_EdgeRadius: 0
 --- !u!95 &1831666536
 Animator:
