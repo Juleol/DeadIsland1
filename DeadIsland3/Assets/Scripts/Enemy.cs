@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             Die();
+            ScoreScript.scoreValue += 10;
         }
     }
 
