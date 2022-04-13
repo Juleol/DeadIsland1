@@ -5,40 +5,42 @@ using UnityEngine.SceneManagement;
 
 public class HurtPlayer : MonoBehaviour
 {
-    private float waitToLoad = 2f;
-    private bool reloading;
     public float waitToHurt = 2f;
     public bool isTouching;
-  
+    private PlayerHealth health;
     [SerializeField]
+    private int damageToGive = 10;
   
     // Start is called before the first frame update
     void Start()
     {
-
+        health = FindObjectOfType<PlayerHealth>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(reloading)
+        if(isTouching)
         {
-            waitToLoad -= Time.deltaTime;
-            if (waitToLoad <= 0)
+            waitToHurt -= Time.deltaTime;
+            if (waitToHurt <= 0)
             {
-             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                //gameObject.GetComponent<PlayerHealth>().TakeDamage(damageToGive);
+                health.TakeDamage(damageToGive);
+                waitToHurt = 2f;
+
             }
+          
+
         }
     }
     public void OnCollisionEnter2D(Collision2D other)
     {
         if (other.collider.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerHealth>().TakeDamage(25);
+            other.gameObject.GetComponent<PlayerHealth>().TakeDamage(damageToGive);
 
 
-            waitToHurt -= Time.deltaTime;
-            waitToLoad -= Time.deltaTime;
 
             //other.gameObject.SetActive(false);
             //  reloading = true;
@@ -52,17 +54,16 @@ public class HurtPlayer : MonoBehaviour
         if (other.collider.tag == "Player")
         {
             isTouching = true;
-        }
-    }
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        if(other.collider.tag == "Player")
-        {
-            isTouching = false;
-            waitToHurt = 2f;
+            
 
         }
     }
-}
+    
+
+       
+        
+
+    }
+
     
 

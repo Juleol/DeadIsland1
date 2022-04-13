@@ -202,3 +202,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waitToHurt: 2
   isTouching: 0
+  damageToGive: 20
