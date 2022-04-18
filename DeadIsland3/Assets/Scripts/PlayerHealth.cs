@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -11,37 +14,70 @@ public class PlayerHealth : MonoBehaviour
 	private SpriteRenderer playerSprite;
 
 	public HealthBar healthBar;
+    public GameObject deathEffect, restartButton, gameOverText;
 
-	// Start is called before the first frame update
-	public void Start()
+
+    // Start is called before the first frame update
+    public void Start()
 	{
 		currentHealth = maxHealth;
 		healthBar.SetMaxHealth(maxHealth);
 		playerSprite = GetComponent<SpriteRenderer>();
-	}
+        restartButton.SetActive(false);
+        gameOverText.SetActive(false);
 
-	// Update is called once per frame
-	public void Update()
-	{
-		// if (Input.GetKeyDown(KeyCode.Space)) 
-		// {
-		// 	TakeDamage(20);
-		// }
-	}
 
-	public void TakeDamage(int damage)
+}
+
+
+// Update is called once per frame
+public void Update()
 	{
-		currentHealth -= damage;
+     
+
+        // if (Input.GetKeyDown(KeyCode.Space)) 
+        // {
+        // 	TakeDamage(20);
+        // }
+        // gameObject.SetActive(false);
+
+    }
+
+    public void TakeDamage(int damage)
+	{
+        currentHealth -= damage;
 		
 		healthBar.SetHealth(currentHealth);
         if(currentHealth <= 0)
         {
-		gameObject.SetActive(false);
-		}
-		StartCoroutine("HurtColor");
+            gameObject.tag = "Untagged";
+            Die();
+            Invoke("DoSomething", 1);
+
+
+
+
+            //  HurtPlayer.waitToHurt = 90f;
+            //  gameObject.GetComponent<HurtPlayer>().waitToHurt = 10f;
+            // HurtPlayer.damageToGive = 0;
+            //GameObject.Find("Slime(Clone)").GetComponent<HurtPlayer>().enabled = false;
+        }
+        StartCoroutine("HurtColor");
+
 	}
 
-	IEnumerator HurtColor()
+   
+    void Die()
+    {
+        
+        gameObject.SetActive(false);
+
+        Instantiate(deathEffect, transform.position, Quaternion.identity);
+        Counter.enemiesValue = 0;
+     
+
+    }
+    IEnumerator HurtColor()
 	{
 		for (int i = 0; i < 3; i++)
 		{
@@ -51,6 +87,14 @@ public class PlayerHealth : MonoBehaviour
 			yield return new WaitForSeconds(.1f);
 		}
 	}
+    void DoSomething()
+    {
+
+        gameOverText.SetActive(true);
+        restartButton.SetActive(true);
+
+    }
+
 }
 
 		

@@ -121,6 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waitToHurt: 2
   isTouching: 0
+  damageToGive: 25
 --- !u!114 &8633832859016236
 MonoBehaviour:
   m_ObjectHideFlags: 0

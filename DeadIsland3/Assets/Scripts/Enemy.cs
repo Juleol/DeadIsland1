@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
         {
             Die();
             ScoreScript.scoreValue += 10;
+            Counter.enemiesValue -= 1;
         }
     }
 

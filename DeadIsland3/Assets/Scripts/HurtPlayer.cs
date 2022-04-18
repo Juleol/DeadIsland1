@@ -9,7 +9,7 @@ public class HurtPlayer : MonoBehaviour
     public bool isTouching;
     private PlayerHealth health;
     [SerializeField]
-    private int damageToGive = 10;
+    public int damageToGive;
   
     // Start is called before the first frame update
     void Start()
@@ -24,46 +24,70 @@ public class HurtPlayer : MonoBehaviour
         {
             waitToHurt -= Time.deltaTime;
             if (waitToHurt <= 0)
-            {
-                //gameObject.GetComponent<PlayerHealth>().TakeDamage(damageToGive);
-                health.TakeDamage(damageToGive);
-                waitToHurt = 2f;
 
-            }
-          
+                {
+                    health.TakeDamage(damageToGive);
+                    waitToHurt = 2f;
+                }
+
+                //gameObject.GetComponent<PlayerHealth>().TakeDamage(damageToGive);
+             
+      
 
         }
+       
+
     }
+   
     public void OnCollisionEnter2D(Collision2D other)
     {
         if (other.collider.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerHealth>().TakeDamage(damageToGive);
-
-
-
-            //other.gameObject.SetActive(false);
-            //  reloading = true;
-            //   SceneManager.LoadScene("Menu");
-
-        }
-        
-    }
-    private void OnCollisionStay2D(Collision2D other)
-    {
-        if (other.collider.tag == "Player")
-        {
+            //     if (gameObject.GetComponent<PlayerHealth>().maxHealth >= 0)
+            //     {
             isTouching = true;
-            
+
+                other.gameObject.GetComponent<PlayerHealth>().TakeDamage(damageToGive);
+            //   }
+            //if (gameObject.GetComponent<PlayerHealth>().currentHealth <= 0)
+            //{
+            //       isTouching = false;
+            //  other.gameObject.GetComponent<PlayerHealth>().TakeDamage(0);
+
+            // GameObject.Find("Slime(Clone)").GetComponent<HurtPlayer>().enabled = false;
+        }
+     
+
+
+           
+      
+        
+
+
 
         }
+
+
+
+
+        //other.gameObject.SetActive(false);
+        //  reloading = true;
+        //   SceneManager.LoadScene("Menu");
+
     }
+
+  
+        
+
+    
+ 
+   
     
 
        
         
 
-    }
+    
 
     
 

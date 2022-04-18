@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using TMPro;
+
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -11,7 +13,11 @@ public class WaveSpawner : MonoBehaviour
         public Transform enemy;
         public int count;
         public float rate;
+
+
     }
+    public GameObject nextWaveText;
+
     public Wave[] waves;
     private int nextWave = 0;
 
@@ -26,6 +32,8 @@ public class WaveSpawner : MonoBehaviour
 
     void Start ()
     {
+        nextWaveText.SetActive(false);
+
         if (spawnPoints.Length == 0)
         {
             Debug.LogError("No spawn points referenced.");
@@ -41,6 +49,8 @@ public class WaveSpawner : MonoBehaviour
             {
                 //Begin a new round
                 WaveCompleted();
+                nextWaveText.SetActive(true);
+
             }
             else
             {
@@ -97,6 +107,8 @@ public class WaveSpawner : MonoBehaviour
     {
         Debug.Log("Spawning Wave:" + _wave.name);
         state = SpawnState.SPAWNING;
+        nextWaveText.SetActive(false);
+
 
         for (int i = 0; i < _wave.count; i++)
         {
@@ -111,6 +123,8 @@ public class WaveSpawner : MonoBehaviour
 
     void SpawnEnemy(Transform _enemy)
     {
+        Counter.enemiesValue += 1;
+
         //Spawn enemy
         Debug.Log("Spawning Enemy: " + _enemy.name);
 
