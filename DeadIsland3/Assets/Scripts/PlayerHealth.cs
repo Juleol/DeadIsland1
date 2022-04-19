@@ -15,11 +15,15 @@ public class PlayerHealth : MonoBehaviour
 
 	public HealthBar healthBar;
     public GameObject deathEffect, restartButton, gameOverText;
+    public int A;
+    public int B;
 
 
     // Start is called before the first frame update
     public void Start()
 	{
+        A = 0;
+        B = -15;
 		currentHealth = maxHealth;
 		healthBar.SetMaxHealth(maxHealth);
 		playerSprite = GetComponent<SpriteRenderer>();
@@ -48,26 +52,30 @@ public void Update()
         currentHealth -= damage;
 		
 		healthBar.SetHealth(currentHealth);
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
-            gameObject.tag = "Untagged";
-            Die();
-            Invoke("DoSomething", 1);
+            if (currentHealth >= -10)
+            {
+                gameObject.tag = "Untagged";
+                Die();
+                Invoke("DoSomething", 2);
+            }
 
-
+          
+        }
 
 
             //  HurtPlayer.waitToHurt = 90f;
             //  gameObject.GetComponent<HurtPlayer>().waitToHurt = 10f;
             // HurtPlayer.damageToGive = 0;
             //GameObject.Find("Slime(Clone)").GetComponent<HurtPlayer>().enabled = false;
-        }
+        
         StartCoroutine("HurtColor");
 
 	}
 
    
-    void Die()
+   public void Die()
     {
         
         gameObject.SetActive(false);

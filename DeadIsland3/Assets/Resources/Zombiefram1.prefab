@@ -122,6 +122,7 @@ MonoBehaviour:
   speed: 8
   checkRadius: 13
   attackRadius: 2
+  homePos: {fileID: 0}
   shouldRotate: 1
   whatIsPlayer:
     serializedVersion: 2
