@@ -544,7 +544,7 @@ MonoBehaviour:
   nextWaveText: {fileID: 1330639057}
   waves:
   - name: Slime Invasion
-    enemy: {fileID: 4380864963379394257, guid: c7a0ef1062a216f4f8f3845007d958ea, type: 3}
+    enemy: {fileID: 7833326267093093889, guid: debec56bc46497542b5b3eedc1013dfe, type: 3}
     count: 3
     rate: 1
   - name: Tree Invasion
@@ -854,7 +854,7 @@ Transform:
   m_GameObject: {fileID: 222087804}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 33.2, y: 14.8, z: 1.5761703}
-  m_LocalScale: {x: 1, y: 20.88957, z: 1}
+  m_LocalScale: {x: 1, y: 31.073235, z: 1}
   m_Children: []
   m_Father: {fileID: 1424146444}
   m_RootOrder: 11

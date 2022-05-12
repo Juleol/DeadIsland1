@@ -22,8 +22,7 @@ public class PlayerHealth : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
 	{
-        A = 0;
-        B = -15;
+       
 		currentHealth = maxHealth;
 		healthBar.SetMaxHealth(maxHealth);
 		playerSprite = GetComponent<SpriteRenderer>();
@@ -82,19 +81,35 @@ public void Update()
 
         Instantiate(deathEffect, transform.position, Quaternion.identity);
         Counter.enemiesValue = 0;
-     
+        ScoreScript.scoreValue = 0;
+
+
 
     }
     IEnumerator HurtColor()
 	{
-		for (int i = 0; i < 3; i++)
-		{
-			GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.3f); //Red, Green, Blue, Alpha/Transparency
-			yield return new WaitForSeconds(.1f);
-			GetComponent<SpriteRenderer>().color = Color.white; //White is the default "color" for the sprite, if you're curious.
-			yield return new WaitForSeconds(.1f);
-		}
-	}
+        if (currentHealth >= 0)
+        {
+           
+            
+                for (int i = 0; i < 3; i++)
+                {
+                    GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.3f); //Red, Green, Blue, Alpha/Transparency
+                    yield return new WaitForSeconds(.1f);
+                    GetComponent<SpriteRenderer>().color = Color.white; //White is the default "color" for the sprite, if you're curious.
+                    yield return new WaitForSeconds(.1f);
+                }
+            if (currentHealth < 0)
+            {
+                yield break;
+            }
+
+        }
+        
+     
+
+    }
+
     void DoSomething()
     {
 
