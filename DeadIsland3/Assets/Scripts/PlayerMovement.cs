@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float test;
     public Animator animator;
     SpriteRenderer sr;
-    
+    PhotonView view;
 
     Vector2 mousePos;
 
@@ -18,26 +19,31 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
+        view = GetComponent<PhotonView>(); 
     }
     void Update()
     {
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-
-
-
-       
+        if(view.IsMine)
         {
+            mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-            movement.x = Input.GetAxisRaw("Horizontal");
-            movement.y = Input.GetAxisRaw("Vertical");
 
-            if (movement != Vector2.zero)
+
+
             {
-                animator.SetFloat("Horizontal", movement.x);
-                animator.SetFloat("Vertical", movement.y);
-            }
 
-            animator.SetFloat("Speed", movement.sqrMagnitude);
+                movement.x = Input.GetAxisRaw("Horizontal");
+                movement.y = Input.GetAxisRaw("Vertical");
+
+                if (movement != Vector2.zero)
+                {
+                    animator.SetFloat("Horizontal", movement.x);
+                    animator.SetFloat("Vertical", movement.y);
+                }
+
+                animator.SetFloat("Speed", movement.sqrMagnitude);
+            }
+       
         }
 
         Vector2 lookDir = mousePos - rb.position;

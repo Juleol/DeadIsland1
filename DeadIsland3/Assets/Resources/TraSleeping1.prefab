@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3492008198941470012}
   - component: {fileID: 8007628601126372349}
   - component: {fileID: 6288241547932337158}
+  - component: {fileID: 7222130834768198720}
   m_Layer: 3
   m_Name: TraSleeping1
   m_TagString: Enemy
@@ -137,6 +138,7 @@ MonoBehaviour:
   speed: 8
   checkRadius: 13
   attackRadius: 2
+  homePos: {fileID: 0}
   shouldRotate: 1
   whatIsPlayer:
     serializedVersion: 2
@@ -203,3 +205,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.399068, y: 4.8802834}
   m_EdgeRadius: 0
+--- !u!114 &7222130834768198720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5343973887482723102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
